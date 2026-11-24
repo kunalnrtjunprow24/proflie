@@ -1,15 +1,13 @@
-import {Adminpage} from `./pages/admin.js`
-import {Homepage} from `./pages/home.js`
-
-const routes={
-  '/':Homepage,
-  '/admin' :Adminpage,
+import { HomePage } from './pages/home.js'
+import { AdminPage } from './pages/admin.js'
+const routes = {
+  '/': HomePage,
+  '/admin': AdminPage,
 }
-
-function render(){
-  const path=location.hash.slice(1)||'/'
-  const page=routes[path] || Homepage
-  document.querySelector('#app').innerHTML=page()
+function render() {
+  const path = location.hash.slice(1) || '/'
+  const page = routes[path] || HomePage
+  document.querySelector('#app').innerHTML = page()
 }
-window.addEventListener('hashchange',render)
-render();
+window.addEventListener('hashchange', render)
+render()
